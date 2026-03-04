@@ -42,4 +42,11 @@ html_code = f"""
 <div style="display: flex; justify-content: space-around; align-items: flex-end; height: 500px; padding: 20px; font-family: sans-serif; text-align: center;">
 <div>
 <div style="font-size: 50px; margin-bottom: 10px;">🐋</div>
-<div style="width: 100px; height: 350px; border: 4px solid #333; border-radius: 20px; position:
+<div style="width: 100px; height: 350px; border: 4px solid #333; border-radius: 20px; position: relative; background: #fff; overflow: hidden; margin: 0 auto;">
+<div style="position: absolute; bottom: 0; width: 100%; height: {pct_ninive}%; background: linear-gradient(to top, #002147, #0077be); transition: height 1s ease-in-out;"></div>
+</div>
+<div style="margin-top: 15px; font-weight: bold; font-size: 1.5em; color: white;">Nínive: {ninive_pts}</div>
+<div style="color: #0077be; font-size: 1.2em; margin-top: 5px;">🌊 🐟 🐠</div>
+</div>
+<div>
+<div style="font-size:
