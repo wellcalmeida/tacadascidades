@@ -49,4 +49,14 @@ html_code = f"""
 <div style="color: #0077be; font-size: 1.2em; margin-top: 5px;">🌊 🐟 🐠</div>
 </div>
 <div>
-<div style="font-size:
+<div style="font-size: 50px; margin-bottom: 10px;">🦁</div>
+<div style="width: 100px; height: 350px; border: 4px solid #333; border-radius: 20px; position: relative; background: #fff; overflow: hidden; margin: 0 auto;">
+<div style="position: absolute; bottom: 0; width: 100%; height: {pct_juda}%; background: linear-gradient(to top, #8b4513, #ff8c00, #ffd700); transition: height 1s ease-in-out;"></div>
+</div>
+<div style="margin-top: 15px; font-weight: bold; font-size: 1.5em; color: white;">Judá: {juda_pts}</div>
+<div style="color: #ff8c00; font-size: 1.2em; margin-top: 5px;">🌿 🌵 🐆</div>
+</div>
+</div>
+"""
+
+st.markdown(html_code, unsafe_allow_html=True)
