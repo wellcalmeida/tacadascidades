@@ -1,33 +1,31 @@
 import streamlit as st
 import pandas as pd
 
-# Configuração da página para ocupar a tela toda
 st.set_page_config(page_title="Taça das Cidades", layout="wide")
 
-# ==========================================
-# CONFIGURAÇÕES - EDITE AQUI
-# ==========================================
+# O teu link
 SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT0RCqjD-h0SJHNJLl-OC9TqzBDzec49tgiMyMxFeu4fmuz0fBuX8clatiqJWZ_jz9EYzjBJGd8HYaB/pub?output=csv"
-META_PONTOS = 1000  # Quantos pontos enchem a régua até o topo?
+META_PONTOS = 1000
 
-# Oculta o menu padrão do Streamlit para parecer um site finalizado
-st.markdown("""
-<style>
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-header {visibility: hidden;}
-</style>
-""", unsafe_allow_html=True)
+# Removemos o código que escondia o menu para podermos ver os erros melhor agora
 
 @st.cache_data(ttl=30)
 def buscar_pontos():
     try:
+        # Tenta ler o CSV
         df = pd.read_csv(SHEET_URL, header=None)
-        # Atenção: ajustado para linha 2 e 3, coluna B (índices 1 e 1)
+        
+        # MOSTRA A TABELA NO ECRÃ DO STREAMLIT (Para depuração)
+        st.write("🔍 **Como o Python está a ver a tua folha de cálculo:**", df)
+        
+        # Tenta extrair os pontos
         pontos_ninive = int(df.iloc[1, 1])
         pontos_juda = int(df.iloc[2, 1])
         return pontos_ninive, pontos_juda
+        
     except Exception as e:
+        # MOSTRA O ERRO EXATO A VERMELHO NO ECRÃ
+        st.error(f"⚠️ Erro técnico ao ler os dados: {e}")
         return 0, 0 
 
 ninive_pts, juda_pts = buscar_pontos()
@@ -37,7 +35,6 @@ pct_juda = min((juda_pts / META_PONTOS) * 100, 100)
 
 st.markdown("<h1 style='text-align: center;'>🏆 Taça das Cidades</h1>", unsafe_allow_html=True)
 
-# HTML sem indentação para evitar o bug de bloco de código no Streamlit
 html_code = f"""
 <div style="display: flex; justify-content: space-around; align-items: flex-end; height: 500px; padding: 20px; font-family: sans-serif; text-align: center;">
 <div>
