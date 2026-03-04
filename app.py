@@ -7,7 +7,7 @@ st.set_page_config(page_title="Taça das Cidades", layout="wide")
 # ==========================================
 # CONFIGURAÇÕES - EDITE AQUI
 # ==========================================
-SHEET_URL = "https://docs.google.com/spreadsheets/d/1lF1Yxm89ZScD11FcVjdVmCmpHOAYO4l5WOge4kIWsME/edit?gid=0#gid=0"
+SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT0RCqjD-h0SJHNJLl-OC9TqzBDzec49tgiMyMxFeu4fmuz0fBuX8clatiqJWZ_jz9EYzjBJGd8HYaB/pub?output=csv"
 META_PONTOS = 1000  # Quantos pontos enchem a régua até o topo?
 
 # Oculta o menu padrão do Streamlit para parecer um site finalizado
